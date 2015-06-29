@@ -56,4 +56,14 @@ describe ReaderWriter do
     end
   end
 
+  describe "#writer" do
+    it "writes the results to your output CSV file" do
+      new_game = GameController.new(@new_file.dimensions,
+                                    @new_file.laser_parameters,
+                                    @new_file.mirror_parameters)
+      @new_file.writer(new_game.play, @output_string)
+      read_output = ReaderWriter.new(@output_string)
+      expect(read_output.dimensions.first.to_i).to eql(258)
+    end
+  end
 end
