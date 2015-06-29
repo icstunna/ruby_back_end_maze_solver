@@ -25,8 +25,8 @@ describe GameController do
   end
 
   describe "#play" do
-    it "" do
-
+    it "return an instance of the class Laser with updated attributes signifying the game has been played" do
+      expect(@game.play).to be_an_instance_of(Laser)
     end
   end
 end
