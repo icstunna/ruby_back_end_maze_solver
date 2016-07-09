@@ -48,24 +48,8 @@ class Laser
     end
   end
 
-  def change_direction(cell)
-    if self.direction == "N" && cell.mirror_type == "/"
-      self.direction = "E"
-    elsif self.direction == "S" && cell.mirror_type == "/"
-      self.direction = "W"
-    elsif self.direction == "E" && cell.mirror_type == "/"
-      self.direction = "N"
-    elsif self.direction == "W" && cell.mirror_type == "/"
-      self.direction = "S"
-    elsif self.direction == "N" && cell.mirror_type == "\\"
-      self.direction = "W"
-    elsif self.direction == "S" && cell.mirror_type == "\\"
-      self.direction = "E"
-    elsif self.direction == "E" && cell.mirror_type == "\\"
-      self.direction = "N"
-    elsif self.direction == "W" && cell.mirror_type == "\\"
-      self.direction = "S"
-    end
+  def change_direction(mirror)
+    self.direction = mirror.get_redirect(self.direction)
   end
 
   def stop?(environtment)
