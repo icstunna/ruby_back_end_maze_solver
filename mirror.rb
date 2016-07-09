@@ -1,4 +1,4 @@
-class Mirror
+class Mirror #Mirror Super Class - Ruby polymorphism (single interface to objects of different types)
   attr_accessor :x_coordinate, :y_coordinate, :mirror
   def initialize(x_coordinate, y_coordinate)
     @x_coordinate = x_coordinate
@@ -6,12 +6,12 @@ class Mirror
     @mirror = true
   end
 
-  def get_redirect(input_direction)
+  def get_redirect(input_direction) #contractual agreement for sub-classes to have this method
     raise NotImplementedError, 'You must implement the get_redirect method'
   end
 end
 
-class ForwardMirror < Mirror
+class ForwardMirror < Mirror #Sub class of mirror - Polymorphism
   def get_redirect(input_direction)
     if input_direction == "N"
       return "E"
@@ -25,7 +25,7 @@ class ForwardMirror < Mirror
   end
 end
 
-class BackwardMirror < Mirror
+class BackwardMirror < Mirror #Sub class or mirror - Polymorphism
   def get_redirect(input_direction)
     if input_direction == "N"
       return "W"
@@ -39,7 +39,7 @@ class BackwardMirror < Mirror
   end
 end
 
-class MirrorFactory
+class MirrorFactory #Factory Design Pattern
   def self.get_mirror(x_coordinate, y_coordinate, type)
     if type == "/"
       return ForwardMirror.new(x_coordinate, y_coordinate)
