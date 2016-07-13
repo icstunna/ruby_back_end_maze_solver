@@ -9,9 +9,9 @@ describe Laser do
                 ["3 3 \\"]
                 ]
 
-    @cell_contact = Mirror.new(10, 10, "/")
+    @cell_contact = ForwardMirror.new(10,10)
 
-    @cell_no_contact = Mirror.new(1,1,"/")
+    @cell_no_contact = ForwardMirror.new(1,1)
   end
 
   before :each do

@@ -32,9 +32,9 @@ class BackwardMirror < Mirror #Sub class or mirror - Polymorphism
     elsif input_direction == "S"
       return "E"
     elsif input_direction == "E"
-      return "N"
-    elsif input_direction == "W"
       return "S"
+    elsif input_direction == "W"
+      return "N"
     end
   end
 end
