@@ -80,12 +80,32 @@ class Laser
 
   def execute_laser(environment) #This is the method that needs to be refactored from a finite state to vectored state
     until stop?(environment) || loop?
+      # move
+      # environment.board.each do |cell|
+      #   if cell.mirror
+      #     if mirror_contact?(cell)
+      #       change_direction(cell)
+      #       mirror_contact_tally(cell)
+      #     end
+      #   end
+      # end
       move
       environment.board.each do |cell|
-        if cell.mirror
-          if mirror_contact?(cell)
+        if self.direction == "S"
+          if self.x_position == cell.x_coordinate && self.y_position > cell.y_coordinate
             change_direction(cell)
-            mirror_contact_tally(cell)
+          end
+        elsif self.direction == "N"
+          if self.x_position == cell.x_coordinate && self.y_position < cell.y_coordinate
+            change_direction(cell)
+          end
+        elsif self.direction == "E"
+          if self.y_position == cell.y_coordinate && self.x_position < cell.x_coordinate
+            change_direction(cell)
+          end
+        elsif self.direction == "W"
+          if self.y_position == cell.y_coordinate && self.x_position > cell.x_coordinate
+            change_direction(cell)
           end
         end
       end
