@@ -78,7 +78,7 @@ class Laser
     end
   end
 
-  def execute_laser(environment)
+  def execute_laser(environment) #This is the method that needs to be refactored from a finite state to vectored state
     until stop?(environment) || loop?
       move
       environment.board.each do |cell|
