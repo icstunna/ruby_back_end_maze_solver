@@ -1,4 +1,4 @@
-require "./spec_helper.rb"
+require_relative "./spec_helper.rb"
 
 describe Mirror do
   before :each do
@@ -37,15 +37,28 @@ describe Mirror do
   end
 
   describe "#get_redirect" do
-    it "returns the correct redirect" do
+    it "returns E" do
       expect(@forward_mirror.get_redirect("N")).to eql("E")
+    end
+    it "returns W" do
       expect(@forward_mirror.get_redirect("S")).to eql("W")
+    end
+    it "returns N" do
       expect(@forward_mirror.get_redirect("E")).to eql("N")
+    end
+    it "returns S" do
       expect(@forward_mirror.get_redirect("W")).to eql("S")
-
+    end
+    it "returns W" do
       expect(@backward_mirror.get_redirect("N")).to eql("W")
+    end
+    it "returns E" do
       expect(@backward_mirror.get_redirect("S")).to eql("E")
+    end
+    it "returns S" do
       expect(@backward_mirror.get_redirect("E")).to eql("S")
+    end
+    it "returns N" do
       expect(@backward_mirror.get_redirect("W")).to eql("N")
     end
   end

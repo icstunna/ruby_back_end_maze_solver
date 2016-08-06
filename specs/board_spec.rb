@@ -1,4 +1,4 @@
-require './spec_helper.rb'
+require_relative './spec_helper.rb'
 
 describe BoardEnvironment do
   before :all do
