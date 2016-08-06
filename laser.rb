@@ -1,9 +1,18 @@
 class Laser
   attr_accessor :x_position, :y_position, :direction, :area_traversed, :stop, :looping, :mirror_cells_touch, :mirror_cells_touch_limit
-  def initialize(laser_info_array)
-    @x_position = laser_info_array.first.split(" ")[0].to_i
-    @y_position = laser_info_array.first.split(" ")[1].to_i
-    @direction = laser_info_array.first.split(" ")[2].upcase
+
+  def self.new_using_info_array(laser_info_array)
+    @x = laser_info_array.first.split(" ")[0].to_i
+    @y = laser_info_array.first.split(" ")[1].to_i
+    @dir = laser_info_array.first.split(" ")[2].upcase
+
+    self.new(@x, @y, @dir)
+  end
+
+  def initialize(x, y, dir)
+    @x_position = x
+    @y_position = y
+    @direction = dir
     @area_traversed = 0
     @stop = false
     @looping = false

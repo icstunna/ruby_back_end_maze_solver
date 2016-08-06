@@ -6,6 +6,7 @@ require "./laser.rb"
 require "./mirror.rb"
 require "./game.rb"
 require "./file_reader.rb"
+require "./maze_runner.rb"
 
 puts "please enter maze followed by your input and output file"
 puts "ie: maze ./path/to/input/file.csv ./path/to/output/file.csv"
@@ -23,4 +24,4 @@ new_game = GameController.new(game_file.dimensions,
 
 game_results = new_game.play
 
-game_file.writer(game_results, output_file)
+# game_file.writer(game_results, output_file)
